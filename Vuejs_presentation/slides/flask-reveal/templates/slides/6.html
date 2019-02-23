@@ -1,0 +1,21 @@
+<section>
+    <span class="divRight">
+        <select id="codeSelect" onchange="set_code('code_text')">
+                <option value="Vue inicialização.txt">Vue inicialização</option>
+                <option value="Vue diretivas_1.txt">V-bind, V-for, V-if</option>
+                <option value="Vue diretivas_2.txt">V-model, V-on</option>
+                <option value="Vue components.txt">Vue components</option>
+                </select>
+        <button class="runButton" onclick="run_code('code_text','code_html')">Run code</button>
+        <pre>
+            <code id="code_text" onkeydown="run_code('code_text','code_html')" onload="set_code('code_text')" contenteditable data-trim>
+                
+            </code>
+        </pre>
+    </span>
+    <span class="divLeft">
+        <iframe width="400" height="500" id="code_html"></iframe>
+    </span>
+    
+    
+</section>

@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Apresentação</title>
+
+		<link rel="stylesheet" href="../static/css/reveal.css">
+		<link rel="stylesheet" href="../static/css/theme/white.css">
+		<link rel="stylesheet" href="../static/css/custom.css">
+		<link rel="stylesheet" href="../static/css/code.css">
+
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- code -->
+		<script src="../static/js/code.js"></script>
+
+		<!-- vue and json api -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../static/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../static/css/print/pdf.css' : '../static/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                {% for page in page_list %}
+                {% include 'slides/'+page %}
+                {% endfor %}
+
+			</div>
+		</div>
+
+		<script src="../static/lib/js/head.min.js"></script>
+		<script src="../static/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			    center:false,
+				dependencies: [
+					{ src: '../static/plugin/markdown/marked.js' },
+					{ src: '../static/plugin/markdown/markdown.js' },
+					{ src: '../static/plugin/notes/notes.js', async: true },
+					{src: './static/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

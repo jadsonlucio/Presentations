@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <!-- versao de desenvolvimento, inclui aviso uteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <body>
+    <div id="app">
+      <li v-if="message.text.includes('r')" v-for="message in messages">
+         <h3 v-bind:title = "message.text">{{ message.text }}</h3>
+      </li>
+    </div>
+  </body>
+
+</html>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      messages: [{text : "kami"},{text : "brtt"},{text : "faker"}]
+    }
+    
+  })
+</script> 

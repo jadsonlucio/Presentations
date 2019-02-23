@@ -1,0 +1,23 @@
+﻿/* Fatorial de um número natural n, representado por n!, 
+é o produto de todos os inteiros positivos menores ou 
+iguais a n */
+
+#include <iostream>
+
+double fatorial_recursao(int numero){
+	if(numero>1){
+		return numero*fatorial_recursao(numero-1);
+	}else{
+		return 1;
+	}
+}
+
+double fatorial_iteracao(int numero){
+	double resultado=1;
+	int cont=1;
+	for(cont;cont<=numero;cont++){
+		resultado=resultado*cont;
+	}
+	
+	return resultado;
+}

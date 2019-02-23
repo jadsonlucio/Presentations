@@ -1,0 +1,43 @@
+<section>
+    <link rel="stylesheet" href="../static/css/slides/7.css">
+    <h3 align="left">Stack</h3>
+    <span class="divLeft" id="container"></span>
+    <span class="divRight">
+        <label class="switch" onchange="change_stack_real_code()">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <select id="codeSelect" onchange="load_stack_code()">
+          <option value="Exemplo.txt">Exemplo pilha</option>
+          <option value="Fatorial.txt">Fatorial</option>
+          <option value="Fibonacci.txt">Fibonacci</option>
+          <option value="Tail optimization.txt">Tail Call Optimization</option>
+          <option value="Teste.txt">Teste</option>
+        </select>
+    <button id="runButton" class="runButton" onclick="run('stack')">run code</button>
+        <pre>
+            <code class="hljs javascript" id="stack_code" data-trim contenteditable>
+function fatorial(num){
+    var resultado;
+    if(num==1){
+        resultado=1;
+        stack.push("fatorial("+num.toString()+")= 1");
+    }else{
+        stack.push("fatorial("+num.toString()+")= "+num.toString()+" x fatorial("+(num-1).toString()+")");
+        resultado=num*fatorial(num-1);
+        stack.change("fatorial("+num.toString()+")= "+num.toString()+" x "+(resultado/num).toString());
+        stack.change("fatorial("+num.toString()+")= "+resultado.toString());
+    }
+    stack.change("retorna "+resultado.toString());
+    stack.pop()
+    return resultado;
+}
+
+fatorial(6);
+stack.run(2000);
+            </code>
+        </pre>
+    </span>
+    <script src="../static/js/stack/main_stack.js"></script>
+	<script src="../static/js/stack/stack.js"></script>
+</section>

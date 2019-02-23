@@ -1,0 +1,24 @@
+function fatorial(num){
+   var result;
+   #stack.push(concat("fatorial(%s,%s)",[num,1]));
+   result=fatorial_acumulado(num,1);
+   #stack.change(concat("retorna %s",[result]));
+   #stack.pop();
+   return result;
+}
+
+function fatorial_acumulado(num,acumulo){
+   var result;
+   if(num<2){
+      return acumulo;
+   }else{
+      #stack.push(concat("fatorial_acumulado(%s,%s)",[num,acumulo]));
+      result=fatorial_acumulado(num-1,acumulo*num);
+      #stack.change(concat("retorna %s",[result]));
+      #stack.pop();
+      return result;
+   }
+}
+stack.reset();
+fatorial(5);
+stack.run(1000);

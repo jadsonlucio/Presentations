@@ -1,0 +1,32 @@
+.divLeft {
+    width:35%;
+    display:block;
+    float: right;
+}
+.divRight {
+    width:65%;
+    display:block;
+    float: left;
+}
+.runButton {
+    align:left;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#codeSelect{
+   -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+   -moz-appearance: none; /* Remove estilo padrão do FireFox */
+   appearance: none; /* Remove estilo padrão do FireFox*/
+   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
+   background-position: 165px center;  /*Posição da imagem do background*/
+   width: 200px; /* Tamanho do select, maior que o tamanho da div "div-select" */
+   height:46px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
+   border:1px solid #ddd;
+}

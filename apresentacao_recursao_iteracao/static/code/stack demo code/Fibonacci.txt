@@ -1,0 +1,37 @@
+function fib_rec(num){
+   var fib_0;
+   var fib_1;
+   if(num<=1){
+      #stack.push(concat("fib(%s) = %s",[num,num]));          
+      retorno=num
+   }else{
+      #stack.push(concat("fib(%s) = fib(%s) + fib(%s)",[num,num-1,num-2]));                
+      fib_0=fib_rec(num-1);
+      #stack.change(concat("fib(%s) = %s + fib(%s)",[num,fib_0,num-2]));
+      fib_1=fib_rec(num-2);
+      #stack.change(concat("fib(%s) = %s + %s",[num,fib_0,fib_1]));
+      retorno=fib_0+fib_1;
+   }
+   #stack.change(concat("retorna %s",[retorno]));
+   #stack.pop();
+   return retorno;
+}
+function fib_iter(num){
+   var fib_0=0;
+   var fib_1=1;
+   #stack.push("fib(1) = 1");
+   for(var i=2;i<=num;i++){
+      var aux=fib_0;
+      var fib_1=fib_0+fib_1;
+      var fib_0=fib_1;
+      #stack.change(concat("fib(%s) = %s",[i,fib_1]));
+      
+   }
+   #stack.change(concat("retorna %s",[fib_1]));
+   #stack.pop();
+   return fib_1;
+}
+
+stack.reset();
+fib_iter(5);
+stack.run(2000);

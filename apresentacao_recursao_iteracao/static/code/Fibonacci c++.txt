@@ -1,0 +1,51 @@
+﻿/*Sequência de fibonacci é uma sequência de números inteiros,
+começando normalmente por 0 e 1, na qual, cada termo subsequente 
+corresponde à soma dos dois anteriores. */
+
+#include <iostream>
+
+
+int FIB_0=0;
+int FIB_1=1;
+
+double fib_recursao_1(int numero){
+	if(numero>1){
+		return fib_recursao_1(numero-1)+fib_recursao_1(numero-2);
+	}else if(numero==1){
+		return FIB_1;
+	}else if(numero==0){
+		return FIB_0;
+	}
+}
+
+double fib_recursao_2(int numero,double *array){
+	if(numero>1){
+		if(array[numero]==0){
+			double resultado=fib_recursao_1(numero-1)+fib_recursao_1(numero-2);
+			array[numero]=resultado;
+			return resultado;
+		}else{
+			std::cout<<"achou "<<numero<<"\n";
+			return array[numero];
+		}
+	}else if(numero==1){
+		return FIB_1;
+	}else if(numero==0){
+		return FIB_0;
+	}
+}
+
+double fib_iteracao(int numero){
+	double fib_n_0=FIB_0;
+	double fib_n_1=FIB_1;
+	double aux;
+	
+	int cont=2;
+	for(cont;cont<=numero;cont++){
+		aux=fib_n_1;
+		fib_n_1=fib_n_1+fib_n_0;
+		fib_n_0=aux;
+	}
+	
+	return fib_n_1;
+}

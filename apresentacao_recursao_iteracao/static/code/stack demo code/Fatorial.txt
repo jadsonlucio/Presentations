@@ -1,0 +1,30 @@
+﻿function fatorial_recursivo(num){
+    var resultado;
+    if(num==1){
+        resultado=1;
+        #stack.push(concat("fatorial(%s) = 1",[num]));
+    }else{
+        #stack.push(concat("fatorial(%s) = %s x fatorial(%s)",[num,num,num-1]));
+        resultado=num*fatorial_recursivo(num-1);
+        #stack.change(concat("fatorial(%s)= %s x %s",[num,num,resultado/num]));
+        #stack.change(concat("fatorial(%s)= %s",[num,resultado]));
+    }
+    #stack.change(concat("retorna %s",[resultado]));
+    #stack.pop()
+    return resultado;
+}
+
+
+function fatorial_iterativo(num){
+   fatorial=1;
+   #stack.push(concat("fatorial na iteração 0 é %s",[fatorial]));
+   for(var i=2;i<num+1;i++){
+       fatorial=fatorial*i;
+       #stack.change(concat("fatorial na iteração %s é %s",[i-1,fatorial]));	
+   }
+   #stack.change(concat("retorna %s",[fatorial]));
+   #stack.pop();
+}
+
+fatorial_recursivo(6);
+stack.run(2000);

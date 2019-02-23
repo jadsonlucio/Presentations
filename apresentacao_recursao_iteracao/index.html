@@ -1,0 +1,324 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Apresentação</title>
+
+		<link rel="stylesheet" href="static/css/reveal.css">
+		<link rel="stylesheet" href="static/css/theme/white.css">
+		<link rel="stylesheet" href="static/css/custom.css">
+
+        <!-- p5.js files-->
+        <script src="static/p5/p5.min.js"></script>
+        <script src="static/p5/addons/p5.dom.min.js"></script>
+        <script src="static/p5/addons/p5.sound.min.js"></script>
+        <script src="static/js/p5/screen.js"></script>
+        <script src="static/js/p5/button.js"></script>
+
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="static/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'static/css/print/pdf.css' : 'static/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+                <section class="center"><h1>
+    <b>Iteração</b></h1>
+</section>
+                
+                ﻿<section>
+    <h2 align="left">Definição</h2>
+    <p align="justify" ><b>Computação</b>: É a técnica de marcar um bloco de instruções dentro do código de um programa de
+        computador para um número definido de repetições.</p>
+</section>
+                
+                <section>
+    <h2 align="left">Exemplos iteração</h2>
+    <pre>
+        <code id="example_iter_for" class="c++" data-trim contenteditable></code>
+        <code id="example_iter_while" class="c++" data-trim contenteditable></code>
+    </pre>
+</section>
+                
+                <section class="center">
+    <h1>Recursão</h1>
+</section>
+                
+                ﻿<section>
+    <h2 align="left">Definição</h2>
+    <p align="justify" ><b>Computação</b>: È o ato de uma função chamar a si mesma, com o objetivo de dividir o
+        problema em subproblemas menores que podem ser resolvidos trivialmente.</p>
+</section>
+                
+                <section >
+    <h2 align="left">Exemplos recursão</h2>
+    <pre>
+        <code id="example_recursion_simple" class="c++" data-trim contenteditable></code>
+        <code id="example_recursion_ark" class="c++" data-trim contenteditable></code>
+    </pre>
+</section>
+                
+                <section>
+    <link rel="stylesheet" href="static/css/slides/7.css">
+    <h3 align="left">Stack</h3>
+    <span class="divLeft" id="container"></span>
+    <span class="divRight">
+        <label class="switch" onchange="change_stack_real_code()">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <select id="codeSelect" onchange="load_stack_code()">
+          <option value="Exemplo.txt">Exemplo pilha</option>
+          <option value="Fatorial.txt">Fatorial</option>
+          <option value="Fibonacci.txt">Fibonacci</option>
+          <option value="Tail optimization.txt">Tail Call Optimization</option>
+          <option value="Teste.txt">Teste</option>
+        </select>
+    <button id="runButton" class="runButton" onclick="run('stack')">run code</button>
+        <pre>
+            <code class="hljs javascript" id="stack_code" data-trim contenteditable>
+function fatorial(num){
+    var resultado;
+    if(num==1){
+        resultado=1;
+        stack.push("fatorial("+num.toString()+")= 1");
+    }else{
+        stack.push("fatorial("+num.toString()+")= "+num.toString()+" x fatorial("+(num-1).toString()+")");
+        resultado=num*fatorial(num-1);
+        stack.change("fatorial("+num.toString()+")= "+num.toString()+" x "+(resultado/num).toString());
+        stack.change("fatorial("+num.toString()+")= "+resultado.toString());
+    }
+    stack.change("retorna "+resultado.toString());
+    stack.pop()
+    return resultado;
+}
+
+fatorial(6);
+stack.run(2000);
+            </code>
+        </pre>
+    </span>
+    <script src="static/js/stack/main_stack.js"></script>
+	<script src="static/js/stack/stack.js"></script>
+</section>
+                
+                <section class="center">
+    <h1>Exemplos</h1>
+</section>
+                
+                <section>
+
+    <h3 align="left">Fatorial</h3>
+    <pre>
+        <code id="factorial_code" class="c++" data-trim contenteditable></code>
+    </pre>
+</section>
+                
+                <section>
+
+    <h3 align="left">Fibonacci</h3>
+    <pre>
+        <code id="fibonacci_code" class="c++" data-trim contenteditable></code>
+    </pre>
+</section>
+                
+                <section>
+    <link rel="stylesheet" href="static/css/slides/22.css">
+    <h3 align="left">Hanoi</h3>
+    <span class="divLeft" id="container_hanoi"></span>
+    <span class="divRight">
+        <button id="runButton" class="runButton" onclick="run('hanoi')">run code</button>
+        <pre>
+            <code id="hanoi_code" class="hljs javascript" id="code_box_hanoi" data-trim contenteditable></code>
+        </pre>
+    </span>
+    <script src="static/js/torre hanoi/main_hanoi.js"></script>
+	<script src="static/js/torre hanoi/hanoi.js"></script>
+</section>
+                
+                <section data-background-iframe="https://visualgo.net/bn/recursion">
+</section>
+                
+                <section class="center">
+    <h3>Recursão x iteração</h3>
+        <h3>Qual utilizar?</h3>
+</section>
+                
+                <section  id="fragments">
+    <h3 align="left">Velocidade</h3>
+    <table>
+    <td>
+    <img class="fragment fade-in" src="static/images/fatorial_speed_grap.png"></td>
+    <td>
+    <img class="fragment fade-in" src="static/images/fibonacci_speed_grap.png"></td>
+    </table>
+</section>
+                
+                <section id="fragments">
+    <h3 align="left">Uso de memória</h3>
+    <table>
+        <td>
+            <img class="fragment fade-in" src="static/images/factorial_memory_grap.png">
+        </td>
+        <td>
+            <img class="fragment fade-in" src="static/images/fibonacci_memory_grap.png">
+        </td>
+    </table>
+</section>
+                
+                <section >
+    <h3 align="left">Tamanho e legibilidade</h3>
+
+<pre><code id="legibilidade_tamanho" class="c++" data-trim contenteditable></code>
+
+</pre>
+</section>
+                
+                <section class="center">
+    <h1>Questões</h1>
+</section>
+                
+                <section class="center">
+    <h3 align="left">Mdc</h3>
+        <p align="justify">1)Cálculo do mdc entre dois números, usando o algoritmo de Euclides.</p>
+        <p align="justify">A ideia principal no Algoritmo de Euclides é que o MDC pode ser calculado,
+        usando o resto da divisão como entrada para o próximo passo, o que é baseado na seguinte propriedade do MDC:</p>
+        <p align="justify">MDC(a,b)=MDC(b,r)</p>
+        <p align="justify">Sendo r o resto da divisão de a por b.</p>
+
+</section>
+                
+                
+<section class="center">
+
+<h3>Code box</h3>
+<pre><code class="c++" data-trim contenteditable>
+#include iostream
+
+int main(){
+
+
+
+
+}
+
+</code>
+</pre>
+</section>
+                
+                <section class="center">
+    <h3 align="left">Primo</h3>
+        <p align="justify">2)Recebe um número positivo não nulo e retorna 1 se ele for primo e 0 caso contrário.</p>
+        <p align="justify">Um número natural  é dito primo se ele possui unicamente dois divisores naturais distintos:
+            o número um e ele mesmo.</p>
+
+</section>
+                
+                <section class="center">
+
+<h3>Code box</h3>
+<pre><code class="c++" data-trim contenteditable>
+#include iostream
+
+int main(){
+
+
+
+
+}
+
+</code>
+</pre>
+</section>
+                
+                <section class="center">
+    <h3 align="left">Triângulo</h3>
+        <p align="justify">3) Você tem um um triângulo feito de blocos, A linha superior tem 1 bloco, a próxima linha para baixo tem 2
+            blocos, a próxima linha tem 3 blocos, e assim por diante. Calcule recursivamente (sem loops ou multiplicação) o número total
+            de blocos em tal triângulo com o número de linhas especificado.</p>
+</section>
+                
+                <section class="center">
+
+<h3>Code box</h3>
+<pre><code class="c++" data-trim contenteditable>
+#include iostream
+
+int main(){
+
+
+
+
+}
+
+</code>
+</pre>
+</section>
+                
+                <section class="center">
+    <h3 align="left">Soma dos dígitos</h3>
+        <p align="justify">4)Dado um int n não negativo, devolva a soma de seus dígitos recursivamente (sem loops).</p>
+
+</section>
+                
+                <section  class="center">
+
+<h3>Code box</h3>
+<pre><code class="c++" data-trim contenteditable>
+#include iostream
+
+int main(){
+
+
+
+
+}
+
+</code>
+</pre>
+</section>
+                
+
+			</div>
+		</div>
+
+        <!-- code js function -->
+        <script src="static/js/coding/code.js"></script>
+        <script src="static/js/coding/load.js"></script>
+
+		<script src="static/lib/js/head.min.js"></script>
+		<script src="static/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			    center:false,
+				dependencies: [
+					{ src: 'static/plugin/markdown/marked.js' },
+					{ src: 'static/plugin/markdown/markdown.js' },
+					{ src: 'static/plugin/notes/notes.js', async: true },
+					{src: 'static/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,5 @@
+﻿int cont=0;
+while(cont<10){
+    cout<<cont;
+    cont=cont+1;
+}

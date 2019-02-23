@@ -1,0 +1,13 @@
+﻿function mover_pecas(numero_pecas,origem,auxiliar,destino){
+    if(numero_pecas==1){
+        hanoi.move(origem,destino);
+    }else{
+        mover_pecas(numero_pecas-1,origem,destino,auxiliar);
+        hanoi.move(origem,destino);
+        mover_pecas(numero_pecas-1,auxiliar,origem,destino);
+    }
+}
+
+hanoi.setsize(5);
+mover_pecas(5,0,1,2);
+hanoi.run(1000);

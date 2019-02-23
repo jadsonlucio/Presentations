@@ -1,0 +1,6 @@
+﻿void recursao(int cont){
+    cout<<cont;
+    if(cont<9){
+        recursao(cont++);
+    }
+}
